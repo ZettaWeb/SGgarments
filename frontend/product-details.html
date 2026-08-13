@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Garment Details — SG Fashion</title>
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/product-details.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container breadcrumb-content">
+      <a href="/index.html">Home</a>
+      <span>/</span>
+      <a href="/catalog.html">Apparel Collection</a>
+      <span>/</span>
+      <span id="breadcrumb-product-name" class="breadcrumb-current">Garment</span>
+    </div>
+  </div>
+
+  <!-- Product Details Content Area -->
+  <main class="product-detail-main">
+    <div class="container">
+      <div class="product-detail-grid">
+
+        <!-- Left: Product Image Gallery -->
+        <div>
+          <div class="gallery-main-wrap">
+            <img id="gallery-main-img" src="" alt="Garment Image" referrerpolicy="no-referrer"
+              class="gallery-main-img" />
+            <span id="p-discount-badge" class="badge-discount"></span>
+          </div>
+
+          <div id="gallery-thumbs-container" class="gallery-thumbs"></div>
+        </div>
+
+        <!-- Right: Product Information -->
+        <div class="product-info-col">
+
+          <div>
+            <div class="product-meta-badges">
+              <span id="p-category" class="badge-category badge-category-static"></span>
+              <span id="p-availability" class="badge-stock">In Stock</span>
+            </div>
+
+            <h1 id="p-name" class="font-serif product-title">Garment Title</h1>
+
+            <div class="product-rating-wrap">
+              <div id="p-rating-stars" class="rating-stars">★★★★★</div>
+              <span id="p-rating-score" class="rating-score">4.9</span>
+              <span id="p-reviews-count" class="reviews-count">(128 reviews)</span>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <span id="p-price" class="price-current">₹0</span>
+            <span id="p-original-price" class="price-original">₹0</span>
+          </div>
+
+          <p id="p-short-desc" class="product-short-desc"></p>
+
+          <div id="variants-section" class="variants-section">
+            <div>
+              <label class="form-label">Available Sizes</label>
+              <div id="size-picker-container" class="variant-chips"></div>
+            </div>
+            <div>
+              <label class="form-label">Available Color / Style Options</label>
+              <div id="color-picker-container" class="variant-chips"></div>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <span class="form-label quantity-label">Quantity:</span>
+            <div class="quantity-control">
+              <button id="qty-dec" type="button" class="quantity-btn">-</button>
+              <span id="qty-val" class="quantity-val">1</span>
+              <button id="qty-inc" type="button" class="quantity-btn">+</button>
+            </div>
+          </div>
+
+          <div class="action-btn-wrap">
+            <button id="buy-now-btn" type="button" class="btn btn-primary btn-lg btn-full">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span>ORDER NOW VIA WHATSAPP</span>
+            </button>
+          </div>
+
+          <div class="features-section">
+            <h3 class="font-serif features-title">Garment Features & Highlights</h3>
+            <ul id="p-features-list" class="features-list"></ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="product-extra-grid">
+        <div class="card-box extra-card-box">
+          <h2 class="font-serif extra-card-title">Craftsmanship & Fabric Details</h2>
+          <p id="p-full-desc" class="product-full-desc"></p>
+        </div>
+
+        <div class="card-box extra-card-box">
+          <h2 class="font-serif extra-card-title">Garment Specifications</h2>
+          <div id="p-specs-table" class="specs-table"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/js/config.js"></script>
+  <script src="/js/products-data.js"></script>
+  <script src="/js/order.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard & Product Manager — SG Garments</title>
+
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Global, Products & Admin Stylesheets -->
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/products.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body>
+
+    <!-- Header Navigation Bar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Admin Authentication Modal Overlay -->
+    <div id="admin-auth-overlay" class="admin-auth-overlay hidden">
+        <div class="admin-auth-card">
+            <div class="auth-header-brand" style="margin-bottom: 1.5rem;">
+                <span class="auth-logo-symbol">⚜️</span>
+                <h2 class="auth-title" style="margin: 0;">SG Garments Admin</h2>
+            </div>
+
+            <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="form-group">
+                    <label for="auth-username" class="form-label">Admin Username</label>
+                    <input type="text" id="auth-username" class="form-control" placeholder="Enter username" required
+                        autocomplete="username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="auth-password" class="form-label">Admin Password</label>
+                    <input type="password" id="auth-password" class="form-control" placeholder="••••••••" required
+                        autocomplete="current-password" />
+                </div>
+
+                <div id="auth-error-msg" class="admin-alert admin-alert-error hidden"
+                    style="margin-bottom: 0; padding: 0.75rem 1rem;"></div>
+
+                <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-lg btn-full"
+                    style="margin-top: 0.5rem;">
+                    🔐 Log In to Admin Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <main class="admin-main">
+        <div class="container">
+
+            <!-- Page Title & Sleek Admin Header Banner -->
+            <header class="admin-header-banner">
+                <div class="admin-header-brand">
+                    <span class="brand-badge-symbol">⚜️</span>
+                    <div>
+                        <h1 class="admin-header-title">SG GARMENTS <span class="admin-header-subtitle">— Store
+                                Management Console</span></h1>
+                        <p class="admin-header-desc">Real-time apparel inventory control, sales analytics & order
+                            tracking</p>
+                    </div>
+                </div>
+
+                <div class="admin-header-actions">
+                    <div class="status-pill-online">
+                        <span class="status-dot-green"></span>
+                        <span>System Active</span>
+                    </div>
+                    <div id="admin-session-badge" class="session-badge">
+                        <span>🛡️ <strong id="admin-user-name" style="color: var(--gold-accent);">admin</strong></span>
+                    </div>
+                    <a href="/catalog.html" target="_blank" class="btn btn-secondary btn-xs">
+                        👁️ Storefront
+                    </a>
+                    <button type="button" id="btn-admin-logout" class="btn btn-secondary btn-xs logout-btn">
+                        🔓 Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Global Alert Notification Area -->
+            <div id="admin-alert-box" class="hidden"></div>
+
+            <!-- Admin Compact Navigation Tabs -->
+            <nav class="admin-nav-tabs" aria-label="Admin Sections">
+                <button type="button" class="admin-tab-btn active" data-tab="tab-analytics">
+                    📊 Insights
+                </button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-add-product">
+                    ➕ Add Item
+                </button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-inventory">
+                    📦 Catalog (<span id="tab-prod-count">0</span>)
+                </button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-activity">
+                    🛒 Orders & Enquiries (<span id="tab-order-count">0</span>)
+                </button>
+                <button type="button" class="admin-tab-btn" data-tab="tab-settings">
+                    ⚙️ Store Settings
+                </button>
+            </nav>
+
+            <!-- ===================================================================
+             TAB 1: ANALYTICS & INSIGHTS DASHBOARD
+             =================================================================== -->
+            <section id="tab-analytics" class="tab-content-panel active">
+
+                <!-- Key Performance Indicator Cards -->
+                <div class="kpi-grid">
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Total Products</span>
+                            <span class="kpi-icon">🏷️</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-total-products">0</div>
+                        <div class="kpi-subtitle">Active catalog items</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Avg Selling Price</span>
+                            <span class="kpi-icon">💰</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-avg-price">₹0</div>
+                        <div class="kpi-subtitle">Across all categories</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Categories</span>
+                            <span class="kpi-icon">📁</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-total-categories">0</div>
+                        <div class="kpi-subtitle">Distinct collections</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">In-Stock Rate</span>
+                            <span class="kpi-icon">✅</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-instock-rate">100%</div>
+                        <div class="kpi-subtitle">Stock availability</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Avg Customer Rating</span>
+                            <span class="kpi-icon">⭐</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-avg-rating">4.8</div>
+                        <div class="kpi-subtitle">From customer reviews</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">WhatsApp Orders</span>
+                            <span class="kpi-icon">💬</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-orders-count">0</div>
+                        <div class="kpi-subtitle">Received inquiries</div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Breakdown Section -->
+                <div class="analytics-grid-2">
+
+                    <!-- Category Distribution Bar Chart -->
+                    <div class="analytics-box">
+                        <h2 class="analytics-box-title">
+                            <span>Garment Category Breakdown</span>
+                            <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 400;">By Catalog
+                                Count</span>
+                        </h2>
+                        <div id="category-progress-container" class="progress-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Price Tiers & Stock Metrics -->
+                    <div class="analytics-box">
+                        <h2 class="analytics-box-title">
+                            <span>Price Distribution & Tiers</span>
+                            <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 400;">Retail
+                                Range</span>
+                        </h2>
+                        <div id="price-tier-container" class="progress-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Featured Top Rated Apparel -->
+                <div class="analytics-box" style="margin-bottom: 2rem;">
+                    <h2 class="analytics-box-title">
+                        <span>🌟 Top Rated Apparel Items</span>
+                        <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 400;">Top 3 Rated
+                            Items</span>
+                    </h2>
+                    <div id="top-rated-grid" class="top-rated-3-grid">
+                        <!-- Dynamically populated top 3 rated products -->
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ===================================================================
+             TAB 2: ADD / EDIT PRODUCT FORM WITH LIVE PREVIEW
+             =================================================================== -->
+            <section id="tab-add-product" class="tab-content-panel">
+
+                <div class="product-form-container">
+
+                    <!-- Product Input Form Box -->
+                    <div class="form-card-box">
+                        <div class="form-header-bar"
+                            style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gold-border);">
+                            <div>
+                                <h2 style="font-family: var(--font-serif); font-size: 1.375rem; color: var(--gold-light); margin: 0;"
+                                    id="form-header-title">
+                                    Add New Apparel Product
+                                </h2>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <button type="button" id="btn-reset-form" class="btn btn-secondary btn-sm"
+                                    style="font-size: 0.75rem;">
+                                    🔄 Reset / Clear
+                                </button>
+                                <button type="submit" form="product-manage-form" id="btn-submit-product"
+                                    class="btn btn-primary btn-sm"
+                                    style="font-size: 0.8125rem; font-weight: 700; padding: 0.4rem 1rem;">
+                                    💾 Save & Publish Product
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Form Internal Sub-Tabs Navigation -->
+                        <div class="form-subtabs-nav"
+                            style="display: flex; gap: 0.375rem; border-bottom: 1px solid var(--gold-border); margin-bottom: 1rem; overflow-x: auto; padding-bottom: 0.375rem;">
+                            <button type="button" class="form-subtab-btn active" data-subtab="subtab-basic">
+                                📋 Basic Info
+                            </button>
+                            <button type="button" class="form-subtab-btn" data-subtab="subtab-pricing">
+                                🏷️ Pricing & Offers
+                            </button>
+                            <button type="button" class="form-subtab-btn" data-subtab="subtab-images">
+                                🖼️ Images & Visuals
+                            </button>
+                            <button type="button" class="form-subtab-btn" data-subtab="subtab-details">
+                                📝 Details & Specs
+                            </button>
+                        </div>
+
+                        <form id="product-manage-form">
+                            <input type="hidden" id="edit-product-id" value="" />
+
+                            <!-- Subtab 1: Basic Information -->
+                            <div id="subtab-basic" class="form-subtab-content active"
+                                style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="prod-name" class="form-label">Product Title / Name *</label>
+                                    <input type="text" id="prod-name" class="form-control"
+                                        placeholder="e.g. Royal Heritage Silk Kurta Set" required />
+                                </div>
+
+                                <div class="grid grid-2">
+                                    <div class="form-group">
+                                        <label for="prod-category" class="form-label">Garment Category *</label>
+                                        <select id="prod-category" class="form-control" required>
+                                            <option value="Ethnic Wear">Ethnic Wear</option>
+                                            <option value="Sarees & Lehengas">Sarees & Lehengas</option>
+                                            <option value="Formal & Suits">Formal & Suits</option>
+                                            <option value="Casual & Shirts">Casual & Shirts</option>
+                                            <option value="Kids & Festive">Kids & Festive</option>
+                                            <option value="Custom Category">+ Enter Custom Category...</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group hidden" id="custom-cat-wrapper">
+                                        <label for="prod-custom-cat" class="form-label">Custom Category Name</label>
+                                        <input type="text" id="prod-custom-cat" class="form-control"
+                                            placeholder="e.g. Wedding Accessories" />
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-2">
+                                    <div class="form-group">
+                                        <label for="prod-availability" class="form-label">Stock Status</label>
+                                        <select id="prod-availability" class="form-control">
+                                            <option value="In Stock (Fast Shipping)">In Stock (Fast Shipping)</option>
+                                            <option value="Limited Stock Remaining">Limited Stock Remaining</option>
+                                            <option value="Out of Stock">Out of Stock</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="prod-rating" class="form-label">Rating (1.0 to 5.0)</label>
+                                        <input type="number" id="prod-rating" class="form-control" placeholder="4.9"
+                                            min="1" max="5" step="0.1" value="4.9" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subtab 2: Pricing & Offers -->
+                            <div id="subtab-pricing" class="form-subtab-content hidden"
+                                style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="grid grid-3">
+                                    <div class="form-group">
+                                        <label for="prod-price" class="form-label">Selling Price (₹) *</label>
+                                        <input type="number" id="prod-price" class="form-control"
+                                            placeholder="e.g. 2999" min="0" step="1" required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="prod-orig-price" class="form-label">Original Price / MRP (₹)</label>
+                                        <input type="number" id="prod-orig-price" class="form-control"
+                                            placeholder="e.g. 4499" min="0" step="1" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="prod-discount" class="form-label">Discount Tag</label>
+                                        <input type="text" id="prod-discount" class="form-control"
+                                            placeholder="Auto-calculated if blank" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subtab 3: Images & Visuals -->
+                            <div id="subtab-images" class="form-subtab-content hidden"
+                                style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="form-group">
+                                    <label class="form-label">Primary Image *</label>
+                                    <input type="hidden" id="prod-main-img" />
+
+                                    <div class="dropzone" id="dz-main-img" data-folder="sg-fashion/products"
+                                        data-role="main-img">
+                                        <input type="file" id="prod-main-img-file" accept="image/*" hidden />
+                                        <div class="dropzone-inner">
+                                            <div class="dropzone-icon">🖼️</div>
+                                            <div class="dropzone-text">
+                                                <strong>Drag &amp; drop primary image</strong>
+                                                <span>or click the button below to browse from your computer</span>
+                                            </div>
+                                            <button type="button" class="dz-browse-btn">📁 Upload Primary Image</button>
+                                        </div>
+                                        <div class="dropzone-previews"></div>
+                                        <div class="dropzone-status" hidden></div>
+                                    </div>
+                                    <p class="dropzone-hint" id="prod-main-img-hint">No primary image uploaded yet.
+                                        Uploaded images are stored in your Cloudinary account.</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Gallery Images (Optional)</label>
+                                    <input type="hidden" id="prod-extra-imgs" />
+
+                                    <div class="dropzone" id="dz-extra-imgs" data-folder="sg-fashion/products"
+                                        data-role="extra-imgs" data-multiple>
+                                        <input type="file" id="prod-extra-imgs-file" accept="image/*" multiple hidden />
+                                        <div class="dropzone-inner">
+                                            <div class="dropzone-icon">🖼️</div>
+                                            <div class="dropzone-text">
+                                                <strong>Drag &amp; drop gallery images</strong>
+                                                <span>or click the button below to browse (multiple allowed)</span>
+                                            </div>
+                                            <button type="button" class="dz-browse-btn">📁 Upload Gallery Images</button>
+                                        </div>
+                                        <div class="dropzone-previews"></div>
+                                        <div class="dropzone-status" hidden></div>
+                                    </div>
+                                    <p class="dropzone-hint" id="prod-extra-imgs-hint">No gallery images uploaded yet.</p>
+                                </div>
+                            </div>
+
+                            <!-- Subtab 4: Details & Specifications -->
+                            <div id="subtab-details" class="form-subtab-content hidden"
+                                style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="prod-short-desc" class="form-label">Short Description (Catalog
+                                        Summary)</label>
+                                    <input type="text" id="prod-short-desc" class="form-control"
+                                        placeholder="Brief 1-sentence highlight for card view..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="prod-full-desc" class="form-label">Full Overview Paragraph</label>
+                                    <textarea id="prod-full-desc" class="form-control" rows="2"
+                                        placeholder="Detailed garment description..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="prod-features" class="form-label">Key Highlights / Features (One per
+                                        line)</label>
+                                    <textarea id="prod-features" class="form-control" rows="2"
+                                        placeholder="Handcrafted zari embroidery&#10;100% Pure Silk Blend"></textarea>
+                                </div>
+
+                                <div class="grid grid-2">
+                                    <div class="form-group">
+                                        <label for="prod-fabric" class="form-label">Fabric Material</label>
+                                        <input type="text" id="prod-fabric" class="form-control"
+                                            placeholder="e.g. Dupion Silk & Cotton" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="prod-fit" class="form-label">Fit Style</label>
+                                        <input type="text" id="prod-fit" class="form-control"
+                                            placeholder="e.g. Regular Fit" />
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-2">
+                                    <div class="form-group">
+                                        <label for="prod-colors" class="form-label">Colors Available (Comma
+                                            Separated)</label>
+                                        <input type="text" id="prod-colors" class="form-control"
+                                            placeholder="e.g. Royal Gold, Cream" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="prod-sizes" class="form-label">Sizes Available (Comma
+                                            Separated)</label>
+                                        <input type="text" id="prod-sizes" class="form-control"
+                                            placeholder="e.g. S, M, L, XL" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Real-Time Live Preview -->
+                    <div class="live-preview-box">
+                        <span class="preview-badge">✨ Live Product Card Preview</span>
+                        <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                            Live shop catalog view:
+                        </p>
+
+                        <!-- Render Target for Live Preview -->
+                        <div id="live-card-container">
+                            <!-- Dynamically updated by admin.js -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ===================================================================
+             TAB 3: INVENTORY CATALOG TABLE
+             =================================================================== -->
+            <section id="tab-inventory" class="tab-content-panel">
+
+                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold-light);">
+                            Product Inventory Catalog
+                        </h2>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">
+                            View, edit, or delete items stored in MongoDB.
+                        </p>
+                    </div>
+
+                    <!-- Inventory Search & Category Filter -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                        <select id="inventory-cat-filter" class="form-control"
+                            style="width: auto; min-width: 160px; font-size: 0.8125rem;">
+                            <option value="ALL">All Categories</option>
+                            <option value="Ethnic Wear">Ethnic Wear</option>
+                            <option value="Sarees & Lehengas">Sarees & Lehengas</option>
+                            <option value="Formal & Suits">Formal & Suits</option>
+                            <option value="Casual & Shirts">Casual & Shirts</option>
+                            <option value="Kids & Festive">Kids & Festive</option>
+                        </select>
+                        <input type="text" id="inventory-search" class="form-control"
+                            style="min-width: 280px; font-size: 0.8125rem;"
+                            placeholder="🔍 Search by ID (e.g. #001), Name, or Category..." />
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">Image</th>
+                                <th style="width: 220px;">Product Details</th>
+                                <th style="width: 120px;">Category</th>
+                                <th style="width: 100px;">Selling Price</th>
+                                <th style="width: 110px;">MRP / Discount</th>
+                                <th style="width: 80px;">Rating</th>
+                                <th style="width: 120px;">Stock Status</th>
+                                <th style="width: 80px; text-align: center;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-tbody">
+                            <!-- Dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+
+            <!-- TAB 4: RECENT ORDERS & ENQUIRIES LOG -->
+            <section id="tab-activity" class="tab-content-panel">
+
+                <div class="analytics-grid-2">
+
+                    <!-- WhatsApp Customer Orders -->
+                    <div class="analytics-box">
+                        <h2 class="analytics-box-title">
+                            <span>🛒 Customer Orders</span>
+                            <span id="activity-order-count" class="badge-discount" style="position: static;">0
+                                Orders</span>
+                        </h2>
+                        <div id="orders-log-list"
+                            style="display: flex; flex-direction: column; gap: 1rem; max-height: 500px; overflow-y: auto;">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Customer Store Enquiries -->
+                    <div class="analytics-box">
+                        <h2 class="analytics-box-title">
+                            <span>📩 Store Enquiries</span>
+                            <span id="activity-enquiry-count" class="badge-discount"
+                                style="position: static; background: var(--bg-card-dark);">0 Enquiries</span>
+                        </h2>
+                        <div id="enquiries-log-list"
+                            style="display: flex; flex-direction: column; gap: 1rem; max-height: 500px; overflow-y: auto;">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===================================================================
+             TAB 5: STORE SETTINGS (EDITABLE BUSINESS CONTACT CONFIGURATION)
+             =================================================================== -->
+            <section id="tab-settings" class="tab-content-panel">
+
+                <div class="form-card-box" style="max-width: 760px;">
+
+                    <div class="form-header-bar"
+                        style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gold-border);">
+                        <div>
+                            <h2 style="font-family: var(--font-serif); font-size: 1.375rem; color: var(--gold-light); margin: 0;">
+                                Store Settings &amp; Contact Configuration
+                            </h2>
+                            <p style="font-size: 0.8125rem; color: var(--text-muted); margin: 0.25rem 0 0;">
+                                Edit business contact details shown across the website. Saved to MongoDB.
+                            </p>
+                        </div>
+                    </div>
+
+                    <form id="store-settings-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="set-store-name" class="form-label">Store Name</label>
+                            <input type="text" id="set-store-name" class="form-control"
+                                placeholder="e.g. SG Fashion" />
+                        </div>
+
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="set-whatsapp" class="form-label">WhatsApp Number (International, no +)</label>
+                                <input type="tel" id="set-whatsapp" class="form-control"
+                                    placeholder="e.g. 919876543210" />
+                                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                                    Orders &amp; enquiries are sent to this number.
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="set-phone" class="form-label">Store Phone</label>
+                                <input type="tel" id="set-phone" class="form-control"
+                                    placeholder="e.g. +91 98765 43210" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="set-email" class="form-label">Store Email</label>
+                            <input type="email" id="set-email" class="form-control"
+                                placeholder="e.g. support@sggarments.com" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="set-address" class="form-label">Store Address</label>
+                            <textarea id="set-address" class="form-control" rows="2"
+                                placeholder="Full store address"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="set-hours" class="form-label">Business Hours</label>
+                            <input type="text" id="set-hours" class="form-control"
+                                placeholder="e.g. Mon – Sat: 10:00 AM – 8:30 PM | Sun: 11:00 AM – 6:00 PM" />
+                        </div>
+
+                        <div class="grid grid-2" style="margin-top: 0.25rem;">
+                            <div class="form-group" style="border: 1px dashed var(--gold-border); border-radius: var(--radius-md); padding: 1rem;">
+                                <label class="form-label">Store Logo Image</label>
+                                <div class="dropzone" id="dz-set-logo" data-folder="sg-fashion/logo" data-role="logo">
+                                    <input type="file" id="set-logo-file" accept="image/*" hidden />
+                                    <div class="dropzone-inner">
+                                        <div class="dropzone-icon">🖼️</div>
+                                        <div class="dropzone-text">
+                                            <strong>Drag &amp; drop logo here</strong>
+                                            <span>or click the button below to browse</span>
+                                        </div>
+                                        <button type="button" class="dz-browse-btn">📁 Upload Logo</button>
+                                    </div>
+                                    <div class="dropzone-previews"></div>
+                                    <div class="dropzone-status" hidden></div>
+                                </div>
+                                <p class="dropzone-hint" id="set-logo-url">No logo uploaded yet.</p>
+                                <input type="hidden" id="set-logo" />
+                            </div>
+
+                            <div class="form-group" style="border: 1px dashed var(--gold-border); border-radius: var(--radius-md); padding: 1rem;">
+                                <label class="form-label">Hero Banner Image</label>
+                                <div class="dropzone" id="dz-set-hero" data-folder="sg-fashion/hero" data-role="hero">
+                                    <input type="file" id="set-hero-file" accept="image/*" hidden />
+                                    <div class="dropzone-inner">
+                                        <div class="dropzone-icon">🖼️</div>
+                                        <div class="dropzone-text">
+                                            <strong>Drag &amp; drop hero image here</strong>
+                                            <span>or click the button below to browse</span>
+                                        </div>
+                                        <button type="button" class="dz-browse-btn">📁 Upload Hero Image</button>
+                                    </div>
+                                    <div class="dropzone-previews"></div>
+                                    <div class="dropzone-status" hidden></div>
+                                </div>
+                                <p class="dropzone-hint" id="set-hero-url">No hero image uploaded yet.</p>
+                                <input type="hidden" id="set-hero-image" />
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end;">
+                            <button type="submit" id="btn-save-settings" class="btn btn-primary btn-md">
+                                💾 Save Store Settings
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Core Scripts -->
+    <script src="/js/config.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>

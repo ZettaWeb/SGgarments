@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — SG Fashion</title>
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/contact.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Header Banner -->
+  <div class="page-header">
+    <div class="container page-header-container">
+      <span class="brand-tagline">Store Styling & Enquiries</span>
+      <h1 class="font-serif page-header-title">Contact SG Fashion</h1>
+      <p class="page-header-desc">Have a query regarding saree fabrics, ready-to-wear sizing, bulk festive orders, or
+        shipping? Reach out directly.</p>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="contact-main">
+    <div class="container contact-container">
+
+      <!-- Top Grid: Contact Cards & Form -->
+      <div class="contact-top-grid">
+
+        <div class="contact-info-col">
+
+          <div class="card-box">
+            <div class="contact-card-header">
+              <div class="card-icon-box card-icon-box-sm">📞</div>
+              <div>
+                <h3 class="font-serif contact-card-title">Phone & WhatsApp</h3>
+                <p class="contact-card-sub">Direct Stylist Hotline</p>
+              </div>
+            </div>
+            <p class="contact-phone-val">+91 98765 43210</p>
+          </div>
+
+          <div class="card-box">
+            <div class="contact-card-header">
+              <div class="card-icon-box card-icon-box-sm">✉️</div>
+              <div>
+                <h3 class="font-serif contact-card-title">Official Email</h3>
+                <p class="contact-card-sub">Bulk Orders & Support</p>
+              </div>
+            </div>
+            <p class="contact-email-val">support@sggarments.com</p>
+          </div>
+
+          <div class="card-box">
+            <div class="contact-card-header">
+              <div class="card-icon-box card-icon-box-sm">📍</div>
+              <div>
+                <h3 class="font-serif contact-card-title">Boutique Location</h3>
+                <p class="contact-card-sub">Kolkata Flagship Store</p>
+              </div>
+            </div>
+            <p class="contact-address-val">
+              Desh Bandhu Nagar, Baguiati, Kolkata, West Bengal — 700059
+            </p>
+          </div>
+
+          <div class="card-box">
+            <div class="contact-card-header">
+              <div class="card-icon-box card-icon-box-sm">⏰</div>
+              <div>
+                <h3 class="font-serif contact-card-title">Opening Hours</h3>
+                <p class="contact-card-sub">Walk-ins Welcome</p>
+              </div>
+            </div>
+            <p class="contact-hours-val">Mon – Sat: 10:00 AM – 8:30 PM<br />Sun: 11:00 AM – 6:00 PM</p>
+          </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="card-box contact-form-card">
+          <div>
+            <span class="form-label form-tag-label">Fast Assistance</span>
+            <h2 class="font-serif form-title">Send Us an Enquiry</h2>
+            <p class="form-subtitle">Fill out the form below and our store stylist will connect with you immediately
+              over WhatsApp.</p>
+          </div>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-grid-2">
+              <div>
+                <label class="form-label">Your Full Name *</label>
+                <input type="text" id="c-name" required placeholder="Name" class="form-control" />
+                <p id="c-err-name" class="error-text hidden"></p>
+              </div>
+
+              <div>
+                <label class="form-label">WhatsApp Phone Number *</label>
+                <input type="tel" id="c-phone" required placeholder="10-digit Mobile Number" maxlength="10"
+                  class="form-control" />
+                <p id="c-err-phone" class="error-text hidden"></p>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="c-email" required placeholder="email@example.com" class="form-control" />
+              <p id="c-err-email" class="error-text hidden"></p>
+            </div>
+
+            <div>
+              <label class="form-label">Your Query / Retail Order Note *</label>
+              <textarea id="c-message" rows="4" required
+                placeholder="Mention garment requirements, size inquiries, or occasion date..."
+                class="form-control"></textarea>
+              <p id="c-err-message" class="error-text hidden"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-full">
+              <span>SEND ENQUIRY VIA WHATSAPP →</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Google Map Section -->
+      <div class="card-box map-card-box">
+        <div class="map-header">
+          <div>
+            <div class="form-label form-tag-label">📍 Flagship Store Map</div>
+            <h2 class="font-serif map-title">Visit SG Fashion Boutique</h2>
+            <p class="map-subtitle">Located in the heart of Kolkata's premier commercial apparel hub. Ample parking &
+              private trial rooms available.</p>
+          </div>
+          <a href="https://maps.google.com/?q=DC+1%2F1,+Prankendra" target="_blank"
+            rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+            <span>Open in Google Maps ↗</span>
+          </a>
+        </div>
+
+        <div class="map-frame-container">
+          <iframe title="SG Fashion Boutique Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d547.4959214835114!2d88.4285152085194!3d22.61278313511301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f0077dcf367%3A0x26314a2b8b814717!2sDC%201%2F1%2C%20Prankendra!5e0!3m2!1sen!2sin!4v1786538020889!5m2!1sen!2sin"
+            class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/js/config.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+
+</html>

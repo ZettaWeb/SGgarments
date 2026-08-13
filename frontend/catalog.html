@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apparel Collection — SG Fashion</title>
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/catalog.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Header Banner -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="font-serif page-header-title">Apparel Collection</h1>
+      <p class="page-header-desc">Explore our finest selection of traditional ethnic wear, designer silk sarees, formal
+        blazers, and handloom cotton shirts.</p>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="catalog-main">
+    <div class="container">
+
+      <!-- Filter & Search Toolbar -->
+      <div class="toolbar-box">
+
+        <!-- Search Input & Sort Controls Top Row -->
+        <div class="toolbar-main-row">
+          <!-- Search Input Wrap -->
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" id="catalog-search" placeholder="Search by garment name, category, fabric, color..."
+              class="search-input" aria-label="Search garments" autocomplete="off" />
+            <button type="button" id="clear-search-btn" class="clear-search-btn hidden" title="Clear search text"
+              aria-label="Clear search input">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Sort Select Dropdown -->
+          <div class="sort-select-wrap">
+            <label for="catalog-sort" class="sort-label">Sort By:</label>
+            <select id="catalog-sort" class="sort-select" aria-label="Sort garments by">
+              <option value="featured">Featured Collection</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="category-pills-wrap">
+          <div class="category-pills" id="category-pills-container">
+            <button data-category="all" class="cat-pill active">
+              All Collection <span class="pill-count" id="count-all">0</span>
+            </button>
+            <button data-category="Ethnic Wear" class="cat-pill">
+              Ethnic Wear <span class="pill-count" id="count-ethnic">0</span>
+            </button>
+            <button data-category="Sarees & Lehengas" class="cat-pill">
+              Sarees & Lehengas <span class="pill-count" id="count-sarees">0</span>
+            </button>
+            <button data-category="Formal & Suits" class="cat-pill">
+              Formal & Suits <span class="pill-count" id="count-formal">0</span>
+            </button>
+            <button data-category="Casual & Shirts" class="cat-pill">
+              Casual & Shirts <span class="pill-count" id="count-casual">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Status & Results Summary Bar -->
+        <div class="filter-status-bar">
+          <div class="results-count">
+            Showing <span id="results-number" class="text-gold font-semibold">0</span> garments
+          </div>
+          <div id="active-filter-pills" class="active-filter-tags"></div>
+          <button type="button" id="reset-filters-btn" class="reset-link hidden">
+            Reset Filters
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Catalog Grid Loop -->
+      <div id="product-catalog-grid" class="product-grid"></div>
+
+      <!-- Empty Filter State -->
+      <div id="no-products-msg" class="hidden catalog-empty-box">
+        <div class="empty-icon-circle">
+          <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <p class="font-serif empty-title">No garments match your search</p>
+        <p class="empty-subtitle">We couldn't find any clothing matching your criteria. Try adjusting your search query
+          or category filters.</p>
+        <button type="button" id="empty-reset-btn" class="btn btn-secondary btn-sm empty-reset-btn">
+          Clear Search & Filters
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/js/config.js"></script>
+  <script src="/js/products-data.js"></script>
+  <script src="/js/order.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/catalog.js"></script>
+</body>
+
+</html>

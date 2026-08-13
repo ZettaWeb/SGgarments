@@ -1,0 +1,270 @@
+[
+  {
+    "id": 1,
+    "name": "Royal Heritage Embroidered Silk Kurta Set",
+    "price": 2999,
+    "originalPrice": 4499,
+    "discount": "33% OFF",
+    "category": "Ethnic Wear",
+    "images": [
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1597983073493-88cd35cf03b0?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "Handcrafted Dupion silk kurta featuring intricate thread embroidery on collar and cuffs with matching churidar.",
+    "fullDescription": "Elevate your festive wardrobe with the Royal Heritage Kurta Set from SG Fashion. Crafted from premium Dupion Silk, this set features elegant hand-stitch threadwork along the mandarin collar and front placket. Designed for supreme comfort and regal style, it comes paired with a matching cotton-silk churidar.",
+    "features": [
+      "Premium Dupion Silk with Soft Pure Cotton Lining",
+      "Handcrafted zari thread embroidered mandarin collar & cuffs",
+      "Includes matching adjustable drawstring churidar pajama",
+      "Side pockets for mobile and essentials",
+      "Ideal for Weddings, Festivals, and Grand Celebrations"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "Dupion Silk & Cotton Blend",
+      "Pattern": "Embroidered Collar & Placket",
+      "Fit": "Regular Fit",
+      "Sleeve": "Full Sleeves",
+      "Wash Care": "Dry Clean Recommended"
+    },
+    "variants": {
+      "colors": [
+        "Royal Gold & Cream",
+        "Emerald Green",
+        "Maroon Velvet"
+      ],
+      "sizes": [
+        "38 (S)",
+        "40 (M)",
+        "42 (L)",
+        "44 (XL)",
+        "46 (XXL)"
+      ]
+    },
+    "availability": "In Stock (Fast Shipping)",
+    "rating": 4.9,
+    "reviewsCount": 210
+  },
+  {
+    "id": 2,
+    "name": "Pure Banarasi Chanderi Zari Saree",
+    "price": 4999,
+    "originalPrice": 7999,
+    "discount": "37% OFF",
+    "category": "Sarees & Lehengas",
+    "images": [
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "Traditional Banarasi Chanderi silk saree woven with antique gold zari motifs and rich pallu finish.",
+    "fullDescription": "Immerse in timeless grace with SG Fashion' Signature Banarasi Chanderi Saree. Features woven antique gold floral jaal work across the drape and a lavish heavy zari pallu. Comes with an unstitched contrast silk blouse piece.",
+    "features": [
+      "100% Hand-woven Chanderi Silk Blend",
+      "Intricate Gold Zari Jaal & Floral Motifs",
+      "Includes 0.8 meter unstitched designer blouse piece",
+      "Lightweight, breathable drape with regal sheen",
+      "Handcrafted by master artisans"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "Pure Chanderi Silk",
+      "Saree Length": "5.5 Meters",
+      "Blouse Piece": "0.8 Meter Included",
+      "Work": "Gold Zari Weaving",
+      "Wash Care": "Dry Clean Only"
+    },
+    "variants": {
+      "colors": [
+        "Crimson Red & Gold",
+        "Peacock Blue",
+        "Mustard Yellow"
+      ],
+      "sizes": [
+        "Free Size (With Blouse Piece)"
+      ]
+    },
+    "availability": "In Stock",
+    "rating": 4.9,
+    "reviewsCount": 340
+  },
+  {
+    "id": 3,
+    "name": "Italian Cut Slim-Fit Tuxedo Blazer",
+    "price": 3499,
+    "originalPrice": 5299,
+    "discount": "34% OFF",
+    "category": "Formal & Suits",
+    "images": [
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "Italian-cut single-breasted tuxedo blazer with satin lapel collar for sharp formal occasions.",
+    "fullDescription": "Make a refined statement at black-tie galas and wedding receptions. Our Italian Cut Tuxedo Blazer is constructed with high-grade poly-viscose suiting fabric, structured shoulder padding, satin lapel piping, and smooth inner viscose lining.",
+    "features": [
+      "Structured Italian Slim-Fit Silhouette",
+      "Premium Poly-Viscose Crease-Resistant Suiting",
+      "Satin Shawl Lapel Collar with Single Button Closure",
+      "Dual Inner Pockets & Flap Waist Pockets",
+      "Breathable Satin Lining for Sharp Comfort"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "Poly-Viscose Suiting",
+      "Fit": "Italian Slim Fit",
+      "Lapel": "Satin Shawl Lapel",
+      "Closure": "Single Button",
+      "Wash Care": "Dry Clean Only"
+    },
+    "variants": {
+      "colors": [
+        "Midnight Black",
+        "Navy Blue",
+        "Charcoal Gray"
+      ],
+      "sizes": [
+        "38 (S)",
+        "40 (M)",
+        "42 (L)",
+        "44 (XL)"
+      ]
+    },
+    "availability": "In Stock",
+    "rating": 4.8,
+    "reviewsCount": 185
+  },
+  {
+    "id": 4,
+    "name": "Handcrafted Silk Bridal Lehenga Choli",
+    "price": 8999,
+    "originalPrice": 12999,
+    "discount": "31% OFF",
+    "category": "Sarees & Lehengas",
+    "images": [
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "Heavy zardozi and sequins embroidered Raw Silk lehenga choli with net dupatta.",
+    "fullDescription": "Exude magnificence on your special day. Hand-embroidered with authentic zardozi, dabka, and sparkling sequins over rich crimson raw silk. Features a flared kalidar lehenga skirt paired with a padded blouse and sheer net dupatta with beaded borders.",
+    "features": [
+      "Heavy Zardozi, Sequin & Dabka Hand Embroidery",
+      "100% Pure Raw Silk Lehenga Skirt with Double Can-Can Lining",
+      "Padded Unstitched Blouse Fabric (1 Meter)",
+      "Soft Sheer Net Dupatta with Scalloped Zari Border",
+      "Heavy Flare Kalidar Skirt (3.8 Meters Flare)"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "Raw Silk & Net Dupatta",
+      "Work": "Zardozi & Dabka Handwork",
+      "Blouse": "Unstitched (Padded Included)",
+      "Flare": "3.8 Meters",
+      "Wash Care": "Specialist Dry Clean Only"
+    },
+    "variants": {
+      "colors": [
+        "Bridal Crimson Red",
+        "Pastel Pink",
+        "Royal Velvet Maroon"
+      ],
+      "sizes": [
+        "Semi-Stitched (Fits up to Waist 42 inches)"
+      ]
+    },
+    "availability": "In Stock",
+    "rating": 5,
+    "reviewsCount": 95
+  },
+  {
+    "id": 5,
+    "name": "Classic Egyptian Cotton Formal Shirt",
+    "price": 1499,
+    "originalPrice": 2299,
+    "discount": "35% OFF",
+    "category": "Casual & Everyday",
+    "images": [
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "100% Giza Egyptian cotton long-sleeve dress shirt with crisp stiff collar.",
+    "fullDescription": "Tailored from 100% long-staple Giza Egyptian Cotton, offering unmatched softness, breathability, and lustre. Features stiff cutaway collar bone inserts and mother-of-pearl finish buttons.",
+    "features": [
+      "100% Pure Long-Staple Egyptian Cotton",
+      "Wrinkle-Resistant Easy-Care Finish",
+      "German Interlining Stiff Cutaway Collar",
+      "Single Convertible Cuffs for Cufflinks or Buttons",
+      "Tailored Slim-Regular Hybrid Silhouette"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "100% Giza Egyptian Cotton",
+      "Fit": "Tailored Fit",
+      "Collar": "Cutaway Collar",
+      "Pattern": "Solid Plain",
+      "Wash Care": "Machine Wash Warm"
+    },
+    "variants": {
+      "colors": [
+        "Crisp White",
+        "Sky Blue",
+        "Pastel Pink",
+        "Obsidian Black"
+      ],
+      "sizes": [
+        "39 (M)",
+        "40 (M)",
+        "42 (L)",
+        "44 (XL)"
+      ]
+    },
+    "availability": "In Stock",
+    "rating": 4.7,
+    "reviewsCount": 420
+  },
+  {
+    "id": 6,
+    "name": "Handloom Linen Indo-Western Sherwani",
+    "price": 5499,
+    "originalPrice": 8499,
+    "discount": "35% OFF",
+    "category": "Ethnic Wear",
+    "images": [
+      "https://images.unsplash.com/photo-1597983073493-88cd35cf03b0?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
+    ],
+    "shortDescription": "Asymmetric crossover Indo-Western jacket crafted from pure handloom linen-silk.",
+    "fullDescription": "Blend traditional elegance with contemporary cuts. This Indo-Western jacket features an overlapping asymmetric button closure, antique brass crest buttons, and subtle shoulder structure paired with beige trousers.",
+    "features": [
+      "Organic Linen-Silk Handloom Weave",
+      "Asymmetric Crossover Placket with Metallic Crest Buttons",
+      "Structured Soft Shoulder Padding",
+      "Includes Fitted Cream Straight Trousers",
+      "Designed for Sangeet, Engagement & Cocktail Dinners"
+    ],
+    "specs": {
+      "Brand": "SG Fashion",
+      "Fabric": "Handloom Linen-Silk",
+      "Style": "Asymmetric Indo-Western",
+      "Fit": "Tailored Fit",
+      "Closure": "Brass Crest Button Closure",
+      "Wash Care": "Dry Clean Recommended"
+    },
+    "variants": {
+      "colors": [
+        "Champagne Beige",
+        "Olive Green",
+        "Deep Indigo"
+      ],
+      "sizes": [
+        "38 (S)",
+        "40 (M)",
+        "42 (L)",
+        "44 (XL)"
+      ]
+    },
+    "availability": "In Stock",
+    "rating": 4.9,
+    "reviewsCount": 160
+  }
+]

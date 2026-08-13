@@ -1,0 +1,2 @@
+Technology Stack Area 
+Frontend Styling Functionality Deployment Technology HTML5 CSS3 / Tailwind CSS JavaScript Vercel Order Communication WhatsApp
